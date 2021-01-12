@@ -11,7 +11,8 @@
 </ion-header>
 
 <ion-content>
-  <ion-img [src]='imageUrl' style='height: 150px; padding: 20px;'></ion-img>
+  <ion-img *ngIf="ps.photos[0]" [src]='ps.photos[0].webviewPath' style='height: 150px; padding: 20px;'></ion-img>
+  <ion-img *ngIf="!ps.photos[0]"  [src]='imageUrl' style='height: 150px; padding: 20px;'></ion-img>
   <ion-buttons style='justify-content: center;'>
     <ion-button (click)='addPhoto()'> ADD PHOTO </ion-button>
   </ion-buttons>
