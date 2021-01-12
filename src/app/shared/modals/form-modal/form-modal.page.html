@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>New Contact</ion-title>
+    <ion-buttons slot="start">
+      <ion-button (click)='dismiss()'> CANCEL </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)='logForm()' [disabled]="!newContactForm.form?.valid"> DONE </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-img [src]='imageUrl' style='height: 150px; padding: 20px;'></ion-img>
+  <ion-buttons style='justify-content: center;'>
+    <ion-button (click)='addPhoto()'> ADD PHOTO </ion-button>
+  </ion-buttons>
+
+  <form #newContactForm="ngForm" id="ngForm" [formGroup]="newContact" (ngSubmit)="logForm()">
+    <ion-item>
+      <ion-input type="text" placeholder='First Name' formControlName="firstName"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" placeholder='Last Name' formControlName="lastName"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" placeholder='Email' formControlName="email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" placeholder='Phone' formControlName="phone"></ion-input>
+    </ion-item>
+  </form>
+</ion-content>
